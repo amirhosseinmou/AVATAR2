@@ -108,7 +108,7 @@ let setupMode = false;
 
 export function Avatar(props) {
   const { nodes, materials, scene } = useGLTF(
-    "/models/64f1a714fe61576b46f27ca2.glb"
+    "/models/6600227fb526f65083b73e28.glb"
   );
 
   const { message, onMessagePlayed, chat } = useChat();
@@ -118,7 +118,7 @@ export function Avatar(props) {
   useEffect(() => {
     console.log(message);
     if (!message) {
-      setAnimation("Idle");
+      setAnimation("idle");
       return;
     }
     setAnimation(message.animation);
@@ -135,7 +135,7 @@ export function Avatar(props) {
   const group = useRef();
   const { actions, mixer } = useAnimations(animations, group);
   const [animation, setAnimation] = useState(
-    animations.find((a) => a.name === "Idle") ? "Idle" : animations[0].name // Check if Idle animation exists otherwise use first animation
+    animations.find((a) => a.name === "idle") ? "idle" : animations[0].name // Check if Idle animation exists otherwise use first animation
   );
   useEffect(() => {
     actions[animation]
@@ -374,5 +374,7 @@ export function Avatar(props) {
   );
 }
 
-useGLTF.preload("/models/64f1a714fe61576b46f27ca2.glb");
+//useGLTF.preload("/models/64f1a714fe61576b46f27ca2.glb");
+useGLTF.preload("/models/6600227fb526f65083b73e28.glb");
+
 useGLTF.preload("/models/animations.glb");
